@@ -1,2 +1,2 @@
-# ml
-I'm giving a try at machine learning because why not?
+# An attempt at Machine Learning
+I'll be using [kvfrans/learn](https://github.com/kvfrans/learn) and [twopointseven](https://twopointseven.github.io) to learn.

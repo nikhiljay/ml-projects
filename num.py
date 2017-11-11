@@ -1,7 +1,7 @@
 import numpy as np
 
 # sigmoid function
-def nonlin(x, deriv=False):
+def sigmoid(x, deriv=False):
     if(deriv == True):
         return x * (1 - x)
     return 1 / (1 + np.exp(-x))
@@ -21,18 +21,19 @@ np.random.seed(1)
 # initialize weights randomly with mean 0
 w = 2 * np.random.random((3, 1)) - 1
 
-for iter in xrange(10000):
+for i in range(10000):
 
     # forward propagation
-    l0 = x
-    l1 = nonlin(np.dot(l0, w))
+    output = sigmoid(np.dot(x, w)) # multiply input with weight
 
-    l1_error = y - l1 # cost function
+    # cost function comparing to desired output
+    output_error = y - output
 
     # multiply how much we missed by the slope of the sigmoid at the values in l1
-    l1_delta = l1_error * nonlin(l1, True)
+    output_delta = output_error * sigmoid(output, True)
 
     # update weights
-    w += np.dot(l0.T, l1_delta)
+    w += np.dot(x.T, output_delta)
 
-print "Output After Training:" + l1
+print("Output After Training:")
+print(output)

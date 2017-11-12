@@ -13,7 +13,7 @@ x = np.array([[0, 0, 1],
               [1, 1, 1]])
 
 # output dataset
-y = np.array([[0, 0, 1, 1]]).T
+y = np.array([[0, 1, 1, 0]]).T
 
 # seed random numbers to make calculation deterministic (just a good practice)
 np.random.seed(1)
@@ -24,7 +24,7 @@ w = 2 * np.random.random((3, 1)) - 1
 for i in range(10000):
 
     # forward propagation
-    output = sigmoid(np.dot(x, w)) # multiply input with weight
+    output = sigmoid(np.dot(x, w)) # output = sigmoid(input*weight)
 
     # cost function comparing to desired output
     output_error = y - output

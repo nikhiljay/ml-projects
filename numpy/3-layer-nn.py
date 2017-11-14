@@ -26,7 +26,7 @@ for i in range(10000):
     l1 = sigmoid(np.dot(x, w0))
     l2 = sigmoid(np.dot(l1, w1))
 
-    # cost function comparing l2 to desired output
+    # loss function comparing l2 to desired output
     l2_error = l2 - y
 
     # multiply cost of l2 by derivative of activation function
@@ -35,7 +35,7 @@ for i in range(10000):
     # how much did each l1 value contribute to the l2 error (according to the weights)?
     l1_error = np.dot(l2_delta, w1.T)
 
-    # multiply cost of l1 by derivative of activation function
+    # multiply loss of l1 by derivative of activation function
     l1_delta = l1_error * sigmoid(l1, True)
 
     # update weights

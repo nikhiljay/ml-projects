@@ -24,10 +24,10 @@ for i in range(10000):
     l0 = x # not being used but is layer 0
     l1 = sigmoid(np.dot(x, w))
 
-    # cost function comparing l1 to desired output
+    # loss function comparing l1 to desired output
     l1_error = l1 - y
 
-    # multiply cost by derivative of activation function
+    # multiply loss by derivative of activation function
     l1_delta = l1_error * sigmoid(l1, True)
 
     # update weights

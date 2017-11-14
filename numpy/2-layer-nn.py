@@ -27,7 +27,7 @@ for i in range(10000):
     # cost function comparing l1 to desired output
     l1_error = y - l1
 
-    # multiply cost by derivative of activation function bc thats how backprop works
+    # multiply cost by derivative of activation function
     l1_delta = l1_error * sigmoid(l1, True)
 
     # update weights

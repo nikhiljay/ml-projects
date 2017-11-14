@@ -29,13 +29,13 @@ for i in range(10000):
     # cost function comparing l2 to desired output
     l2_error = y - l2
 
-    # multiply cost of l2 by derivative of activation function bc thats how backprop works
+    # multiply cost of l2 by derivative of activation function
     l2_delta = l2_error * sigmoid(l2, True)
 
     # how much did each l1 value contribute to the l2 error (according to the weights)?
     l1_error = np.dot(l2_delta, w1.T)
 
-    # multiply cost of l1 by derivative of activation function bc thats how backprop works
+    # multiply cost of l1 by derivative of activation function
     l1_delta = l1_error * sigmoid(l1, True)
 
     # update weights

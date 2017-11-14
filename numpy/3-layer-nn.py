@@ -27,7 +27,7 @@ for i in range(10000):
     l2 = sigmoid(np.dot(l1, w1))
 
     # cost function comparing l2 to desired output
-    l2_error = y - l2
+    l2_error = l2 - y
 
     # multiply cost of l2 by derivative of activation function
     l2_delta = l2_error * sigmoid(l2, True)
@@ -39,8 +39,8 @@ for i in range(10000):
     l1_delta = l1_error * sigmoid(l1, True)
 
     # update weights
-    w0 += np.dot(l0.T, l1_delta)
-    w1 += np.dot(l1.T, l2_delta)
+    w0 -= np.dot(l0.T, l1_delta)
+    w1 -= np.dot(l1.T, l2_delta)
 
 print("Output After Training:")
 print(l2)

@@ -13,10 +13,7 @@ x = np.array([[0, 0, 1],
               [1, 1, 1]])
 
 # output dataset
-y = np.array([[0, 1, 1, 0]]).T
-
-# seed random numbers to make calculation deterministic (just a good practice)
-np.random.seed(1)
+y = np.array([[0, 0, 1, 1]]).T
 
 # initialize weights randomly with mean 0
 w = 2 * np.random.random((3, 1)) - 1
@@ -24,16 +21,17 @@ w = 2 * np.random.random((3, 1)) - 1
 for i in range(10000):
 
     # forward propagation
-    output = sigmoid(np.dot(x, w)) # output = sigmoid(input*weight)
+    l0 = x # not being used but is layer 0
+    l1 = sigmoid(np.dot(x, w))
 
-    # cost function comparing to desired output
-    output_error = y - output
+    # cost function comparing l1 to desired output
+    l1_error = y - l1
 
-    # multiply how much we missed by the slope of the sigmoid at the values in l1
-    output_delta = output_error * sigmoid(output, True)
+    # multiply cost by derivative of activation function bc thats how backprop works
+    l1_delta = l1_error * sigmoid(l1, True)
 
     # update weights
-    w += np.dot(x.T, output_delta)
+    w += np.dot(x.T, l1_delta)
 
 print("Output After Training:")
-print(output)
+print(l1)

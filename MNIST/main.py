@@ -47,7 +47,7 @@ cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=
 x_train, y_train = TRAIN_SIZE(5500) # number of training samples
 x_test, y_test = TEST_SIZE(10000) # number of test samples
 LEARNING_RATE = 0.05
-TRAIN_STEPS = 200 # more steps = more accurate predictions
+EPOCHS = 200 # more epochs = more accurate predictions
 
 sess = tf.Session()
 init = tf.global_variables_initializer()
@@ -58,10 +58,10 @@ correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1)) # correct predict
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # train
-for i in range(TRAIN_STEPS+1):
+for i in range(EPOCHS+1):
     sess.run(training, feed_dict={x: x_train, y_: y_train})
     if i % 10 == 0:
-        print('Training Step: ' + str(i) + '  Accuracy = ' + str(sess.run(accuracy, feed_dict={x: x_test, y_: y_test})) + '  Loss = ' + str(sess.run(cross_entropy, {x: x_train, y_: y_train})))
+        print('Epoch: ' + str(i) + '  Accuracy = ' + str(sess.run(accuracy, feed_dict={x: x_test, y_: y_test})) + '  Loss = ' + str(sess.run(cross_entropy, {x: x_train, y_: y_train})))
 
 # try out an example
 sample = 82 # sample number (choose from 0 to TRAIN_SIZE)

@@ -37,7 +37,7 @@ def display_digit(num):
     plt.imshow(image, cmap=plt.get_cmap('gray_r'))
     plt.show()
 
-def guess(num):
+def predict(num):
     sample = num # sample number (choose from 0 to TRAIN_SIZE)
     answer = sess.run(y, feed_dict={x: x_train})
     display_digit(sample) # display image of sample
@@ -71,4 +71,4 @@ for i in range(EPOCHS+1):
         print('Epoch: ' + str(i) + '  Accuracy = ' + str(sess.run(accuracy, feed_dict={x: x_test, y_: y_test})) + '  Loss = ' + str(sess.run(cross_entropy, {x: x_train, y_: y_train})))
 
 # try out an example
-guess(82)
+predict(82)

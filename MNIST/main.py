@@ -30,7 +30,7 @@ def TEST_SIZE(num):
 
 # show image of a sample digit
 def display_digit(num):
-    print('Correct:', y_train[num].argmax())
+    print('Correct: ' + str(y_train[num].argmax()))
     label = y_train[num].argmax(axis=0)
     image = x_train[num].reshape([28,28])
     plt.title('Example: %d  Label: %d' % (num, label))
@@ -47,7 +47,7 @@ cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=
 x_train, y_train = TRAIN_SIZE(5500) # number of training samples (can go up to 55000)
 x_test, y_test = TEST_SIZE(10000) # number of test samples
 LEARNING_RATE = 0.05
-EPOCHS = 2636 # more epochs = more accurate predictions
+EPOCHS = 200 # more epochs = more accurate predictions
 
 sess = tf.Session()
 init = tf.global_variables_initializer()
@@ -68,4 +68,4 @@ sample = 82 # sample number (choose from 0 to TRAIN_SIZE)
 answer = sess.run(y, feed_dict={x: x_train})
 display_digit(sample) # display image of sample
 # print(answer[sample]) # print out probabilities of each number
-print('Prediction:', answer[sample].argmax()) # print out number with highest probability
+print('Prediction: ' + str(answer[sample].argmax())) # print out number with highest probability

@@ -14,7 +14,7 @@ import cv2
 import numpy as np
 import operator
 
-outcomes = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+output_labels = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
 # x is image and y is outcome
 (x_train, y_train), (x_val, y_val) = cifar10.load_data()
@@ -82,4 +82,4 @@ image = np.expand_dims(image, axis=0)
 
 pred = model.predict(image)[0]
 index, value = max(enumerate(pred), key=operator.itemgetter(1))
-print(outcomes[index] + ', ' + str(value*100) + '% confidence')
+print(output_labels[index] + ', ' + str(value*100) + '% confidence')

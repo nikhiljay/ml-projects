@@ -63,10 +63,10 @@ model.add(Flatten()) # Make weights from layers 1 dimensional
 model.add(Dense(128, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
 
-# Train model
+# Callback list (saves models at checkpoints)
 callbacks_list = [
     keras.callbacks.ModelCheckpoint(
-        filepath='best_model.{epoch:02d}-{val_loss:.2f}.h5',
+        filepath='best_model.{epoch:02d}.h5',
         monitor='val_loss', save_best_only=True),
     keras.callbacks.EarlyStopping(monitor='acc', patience=1) # stop early if accuracy doesnt improve for two consecutive epochs
 ]
@@ -75,7 +75,7 @@ callbacks_list = [
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 batch_size = 200
-epochs = 10
+epochs = 9
 
 model.fit(
     x_train, y_train, batch_size=batch_size, epochs=epochs,
@@ -84,7 +84,7 @@ model.fit(
 # Create CoreML model
 output_labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 coreml_mnist = coremltools.converters.keras.convert(
-    'best_model.09-0.03.h5', input_names=['image'], output_names=['output'],
+    'best_model.09.h5', input_names=['image'], output_names=['output'],
     class_labels=output_labels, image_input_names='image')
 
 coreml_mnist.author = 'Nikhil DSouza'

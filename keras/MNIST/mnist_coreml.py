@@ -1,4 +1,4 @@
-# This file is used to generate MNISTClassifier.mlmodel (part of Xcode project)
+# Data from http://yann.lecun.com/exdb/mnist/
 
 from __future__ import print_function
 from matplotlib import pyplot as plt

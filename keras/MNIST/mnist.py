@@ -1,3 +1,5 @@
+# Data from http://yann.lecun.com/exdb/mnist/
+
 from __future__ import print_function
 from matplotlib import pyplot as plt
 from keras.datasets import mnist

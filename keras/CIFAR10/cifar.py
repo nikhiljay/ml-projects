@@ -1,3 +1,5 @@
+# Data from https://www.cs.toronto.edu/~kriz/cifar.html
+
 from __future__ import print_function
 from matplotlib import pyplot as plt
 from keras.datasets import cifar10

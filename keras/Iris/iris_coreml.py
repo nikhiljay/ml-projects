@@ -93,7 +93,7 @@ epochs = 100
 
 model.fit(np.array(x_train), np.array(y_train), batch_size=batch_size, epochs=epochs, callbacks=callbacks_list, validation_data=(np.array(x_test), np.array(y_test)), verbose=1)
 
-# Test it out!
+# Create CoreML model
 coreml_mnist = coremltools.converters.keras.convert(
     'best_model.48.h5',
     input_names=['input'],

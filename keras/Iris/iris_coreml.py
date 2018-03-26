@@ -1,4 +1,11 @@
+# Written by Nikhil D'Souza
 # Data from https://en.wikipedia.org/wiki/Iris_flower_data_set
+
+# This neural network predicts the specific species of an Iris flower based on:
+# 1. Sepal length
+# 2. Sepal width
+# 3. Petal length
+# 4. Petal width
 
 from __future__ import print_function
 from matplotlib import pyplot as plt

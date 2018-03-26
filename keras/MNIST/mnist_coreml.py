@@ -1,4 +1,7 @@
+# Written by Nikhil D'Souza
 # Data from http://yann.lecun.com/exdb/mnist/
+
+# This neural network predicts what number is written in an image.
 
 from __future__ import print_function
 from matplotlib import pyplot as plt

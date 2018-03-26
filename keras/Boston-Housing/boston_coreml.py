@@ -1,4 +1,20 @@
+# Written by Nikhil D'Souza
 # Data from http://lib.stat.cmu.edu/datasets/boston
+
+# This neural network predicts the values of houses in Boston based on:
+# 1. per capita crime rate by town
+# 2. proportion of residential land zoned for lots over 25,000 sq.ft.
+# 3. proportion of non-retail business acres per town
+# 4. Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)
+# 5. nitric oxides concentration (parts per 10 million)
+# 6. average number of rooms per dwelling
+# 7. proportion of owner-occupied units built prior to 1940
+# 8. weighted distances to five Boston employment centres
+# 9. index of accessibility to radial highways
+# 10. full-value property-tax rate per $10,000
+# 11. pupil-teacher ratio by town
+# 12. 1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town
+# 13. % lower status of the population
 
 from __future__ import print_function
 from matplotlib import pyplot as plt

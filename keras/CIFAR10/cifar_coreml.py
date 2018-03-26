@@ -1,4 +1,7 @@
+# Written by Nikhil D'Souza
 # Data from https://www.cs.toronto.edu/~kriz/cifar.html
+
+# This neural network predicts what image is in an image.
 
 from __future__ import print_function
 from matplotlib import pyplot as plt

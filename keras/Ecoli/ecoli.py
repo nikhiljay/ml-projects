@@ -37,14 +37,17 @@ x_train, x_test, y_train, y_test = train_test_split(X, target, test_size=0.2)
 
 # Model architecture
 model = Sequential()
-model.add(Dense(20, input_dim=7, kernel_initializer='normal', activation='relu'))
-model.add(Dense(1, kernel_initializer='normal'))
+model.add(Dense(1000, input_dim=7, kernel_initializer='normal', activation='relu'))
+model.add(Dense(500,activation='relu'))
+model.add(Dense(300,activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(1))
 
 # Compile model
 model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
 
 # Train model
-batch_size = 5
+batch_size = 15
 epochs = 500
 
 model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(x_test, y_test), verbose=1)

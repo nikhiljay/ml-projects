@@ -32,15 +32,18 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # Model architecture
 model = Sequential()
-model.add(Dense(20, input_dim=4, kernel_initializer='normal', activation='relu'))
-model.add(Dense(1, kernel_initializer='normal'))
+model.add(Dense(1000, input_dim=4, kernel_initializer='normal', activation='relu'))
+model.add(Dense(500,activation='relu'))
+model.add(Dense(300,activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(1))
 
 # Compile model
-model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='mean_squared_error',optimizer='adam',metrics=['accuracy'])
 
 # Train model
 batch_size = 5
-epochs = 50
+epochs = 500
 
 model.fit(np.array(x_train), np.array(y_train), batch_size=batch_size, epochs=epochs, validation_data=(np.array(x_test), np.array(y_test)), verbose=1)
 

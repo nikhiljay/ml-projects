@@ -1,5 +1,5 @@
 # Written by Nikhil D'Souza
-# Data from UCI ML Repo: Ecoli Data Set (http://archive.ics.uci.edu/ml/datasets/Ecoli)
+# Data from UCI ML Repo: EEG Eye State Data Set (https://archive.ics.uci.edu/ml/datasets/EEG+Eye+State)
 
 # This neural network predicts whether your eyes are open/closed based on your brainwaves.
 

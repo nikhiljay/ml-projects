@@ -21,11 +21,11 @@ import pandas as pd
 import numpy as np
 import keras
 
-heart = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/parkinsons/parkinsons.data')
+parkinsons = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/parkinsons/parkinsons.data')
 
-y = np.array(heart.ix[:,17]) # data from 17th column (Parkinson's status)
-heart.drop('status', axis=1, inplace=True)
-X = np.array(heart.ix[:,1:24]) # data from all columns except the 17th
+y = np.array(parkinsons.ix[:,17]) # data from 17th column (Parkinson's status)
+parkinsons.drop('status', axis=1, inplace=True)
+X = np.array(parkinsons.ix[:,1:24]) # data from all columns except the 17th
 
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 

@@ -1,4 +1,4 @@
-# An attempt at Machine Learning
+# Machine Learning
 I'll be using the following to learn:
 
 - [iamtrask](https://iamtrask.github.io)

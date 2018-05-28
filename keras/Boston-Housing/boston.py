@@ -21,7 +21,7 @@ from matplotlib import pyplot as plt
 from keras.datasets import boston_housing
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D, Lambda
 from keras.utils import np_utils
 from keras import backend as K
 
@@ -31,9 +31,14 @@ import numpy as np
 
 (x_train, y_train), (x_val, y_val) = boston_housing.load_data()
 
+print(x_train[0].shape)
+
 # Model architecture
 model = Sequential()
-model.add(Dense(20, input_dim=13, kernel_initializer='normal', activation='relu'))
+model.add(Dense(400, input_dim=13, kernel_initializer='normal', activation='relu'))
+model.add(Dense(200, input_dim=13, kernel_initializer='normal', activation='relu'))
+model.add(Dense(100, input_dim=13, kernel_initializer='normal', activation='relu'))
+model.add(Dense(50, input_dim=13, kernel_initializer='normal', activation='relu'))
 model.add(Dense(1, kernel_initializer='normal'))
 
 # Compile model
